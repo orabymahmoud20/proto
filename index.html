@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمر حسن | مهندس معماري</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: #f8fafc;
+            overflow-x: hidden;
+            background-color: #000;
+        }
+
+        /* --- Glowing Animated Background --- */
+        .glowing-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .glowing {
+            position: relative;
+            min-width: 700px;
+            height: 550px;
+            margin: -150px;
+            transform-origin: right;
+            animation: colorChange 5s linear infinite;
+        }
+
+        .glowing:nth-child(even) {
+            transform-origin: left;
+        }
+
+        @keyframes colorChange {
+            0% { filter: hue-rotate(0deg); transform: rotate(0deg); }
+            100% { filter: hue-rotate(360deg); transform: rotate(360deg); }
+        }
+
+        .glowing span {
+            position: absolute;
+            top: calc(80px * var(--i));
+            left: calc(80px * var(--i));
+            bottom: calc(80px * var(--i));
+            right: calc(80px * var(--i));
+        }
+
+        .glowing span::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -8px;
+            width: 15px;
+            height: 15px;
+            background: #f00;
+            border-radius: 50%;
+        }
+
+        .glowing span:nth-child(3n + 1)::before {
+            background: rgba(134,255,0,1);
+            box-shadow: 0 0 20px rgba(134,255,0,1), 0 0 40px rgba(134,255,0,1), 0 0 60px rgba(134,255,0,1), 0 0 80px rgba(134,255,0,1), 0 0 0 8px rgba(134,255,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 2)::before {
+            background: rgba(255,214,0,1);
+            box-shadow: 0 0 20px rgba(255,214,0,1), 0 0 40px rgba(255,214,0,1), 0 0 60px rgba(255,214,0,1), 0 0 80px rgba(255,214,0,1), 0 0 0 8px rgba(255,214,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 3)::before {
+            background: rgba(0,226,255,1);
+            box-shadow: 0 0 20px rgba(0,226,255,1), 0 0 40px rgba(0,226,255,1), 0 0 60px rgba(0,226,255,1), 0 0 80px rgba(0,226,255,1), 0 0 0 8px rgba(0,226,255,.1);
+        }
+
+        .glowing span:nth-child(3n + 1) { animation: animate 10s alternate infinite; }
+        .glowing span:nth-child(3n + 2) { animation: animate-reverse 3s alternate infinite; }
+        .glowing span:nth-child(3n + 3) { animation: animate 8s alternate infinite; }
+
+        @keyframes animate {
+            0% { transform: rotate(180deg); }
+            50% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes animate-reverse {
+            0% { transform: rotate(360deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(0deg); }
+        }
+        /* --- End Glowing Background --- */
+
+        /* 3D Buttons */
+        .btn-3d {
+            transition: all 0.1s;
+            box-shadow: 0px 6px 0px #b45309;
+            transform: translateY(0);
+        }
+        .btn-3d:active {
+            box-shadow: 0px 0px 0px #b45309;
+            transform: translateY(6px);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Profile Image Glow */
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #d97706, #f59e0b);
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0.7;
+            animation: pulse 3s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.05); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500 selection:text-white">
+
+    <!-- Glowing Background Container -->
+    <div class="glowing-bg">
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-12 relative z-10">
+        
+        <!-- Hero Section -->
+        <section class="reveal glass-card p-10 text-center mb-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-bl-full"></div>
+            
+            <div class="relative w-40 h-40 mx-auto mb-6 profile-img-container">
+                <img src="clintephoto.jpeg" alt="عمر حسن" class="w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-xl relative z-10" onerror="this.src='https://ui-avatars.com/api/?name=Omar+Hassan&background=d97706&color=fff&size=200'">
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2 tracking-wide">عمر حسن</h1>
+            <h2 class="text-xl md:text-2xl text-amber-500 mb-4 font-semibold">مهندس معماري ومصمم معماري</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-slate-300 mb-8">
+                <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-amber-500"></i> القاهرة، مصر</span>
+                <span class="hidden md:block">|</span>
+                <span class="flex items-center gap-2"><i class="fas fa-briefcase text-amber-500"></i> خبرة 8 سنوات</span>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:hassan.arch@gmail.com" class="btn-3d bg-amber-600 hover:bg-amber-500 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2">
+                    <i class="fas fa-envelope"></i> hassan.arch@gmail.com
+                </a>
+                <a href="tel:+201001234567" class="btn-3d bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2">
+                    <i class="fas fa-phone"></i> +20 100 123 4567
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="reveal glass-card p-8 mb-12">
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 border-b border-slate-700 pb-2">
+                <i class="fas fa-user text-amber-500"></i> نبذة عني
+            </h3>
+            <p class="text-slate-300 leading-relaxed text-lg">
+                أنا مهندس معماري شغوف بتصميم المساحات المعمارية التي تجمع بين الجمال والوظيفة والاستدامة. أمتلك خبرة تزيد عن 8 سنوات في مجال التصميم المعماري، وأتخصص في تصميم المشروعات السكنية والتجارية والمعمارية المعاصرة.
+            </p>
+            <p class="text-slate-300 leading-relaxed text-lg mt-4">
+                أؤمن بأن العمارة ليست مجرد تصميم مبانٍ، بل هي فن ابتكار تجارب ومساحات تؤثر في حياة الإنسان. لذلك أحرص في كل مشروع على تحقيق التوازن بين الرؤية الإبداعية والاحتياجات العملية، مع الاهتمام بأدق التفاصيل واختيار الخامات والإضاءة وتوظيف المساحات بشكل مثالي.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <!-- Skills Section -->
+            <section class="reveal glass-card p-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-slate-700 pb-2">
+                    <i class="fas fa-tools text-amber-500"></i> المهارات المهنية
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-slate-800 text-amber-400 px-4 py-2 rounded-full border border-slate-700 shadow-sm">التصميم المعماري</span>
+                    <span class="bg-slate-800 text-amber-400 px-4 py-2 rounded-full border border-slate-700 shadow-sm">التصميم الداخلي</span>
+                    <span class="bg-slate-800 text-amber-400 px-4 py-2 rounded-full border border-slate-700 shadow-sm">النمذجة ثلاثية الأبعاد</span>
+                    <span class="bg-slate-800 text-amber-400 px-4 py-2 rounded-full border border-slate-700 shadow-sm">العمارة المستدامة</span>
+                    <span class="bg-slate-800 text-amber-400 px-4 py-2 rounded-full border border-slate-700 shadow-sm">التخطيط العمراني</span>
+                    <span class="bg-slate-800 text-amber-400 px-4 py-2 rounded-full border border-slate-700 shadow-sm">تخطيط المساحات</span>
+                    <span class="bg-slate-800 text-amber-400 px-4 py-2 rounded-full border border-slate-700 shadow-sm">الرسومات التنفيذية</span>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="reveal glass-card p-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-slate-700 pb-2">
+                    <i class="fas fa-graduation-cap text-amber-500"></i> المؤهل العلمي
+                </h3>
+                <div class="relative pl-6 border-r-2 border-amber-500 pr-6 mr-2">
+                    <div class="absolute w-4 h-4 bg-amber-500 rounded-full -right-[9px] top-1 border-4 border-slate-900"></div>
+                    <h4 class="text-xl font-bold text-white">بكالوريوس الهندسة المعمارية</h4>
+                    <p class="text-amber-500 font-semibold mt-1">كلية الهندسة - جامعة القاهرة</p>
+                    <p class="text-slate-400 mt-2 text-sm">2014 - 2019</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects Section -->
+        <section class="reveal">
+            <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <i class="fas fa-building text-amber-500"></i> أبرز المشروعات
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card overflow-hidden group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="فيلا عصرية فاخرة" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+                        <span class="absolute top-4 right-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">2025</span>
+                    </div>
+                    <div class="p-6 relative z-10 -mt-6">
+                        <span class="text-amber-400 text-sm font-semibold mb-2 block">تصميم معماري سكني</span>
+                        <h4 class="text-xl font-bold text-white mb-2">فيلا عصرية فاخرة</h4>
+                        <p class="text-slate-400 text-sm mb-4"><i class="fas fa-map-marker-alt"></i> القاهرة الجديدة</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            تصميم فيلا عصرية تعتمد على الإضاءة الطبيعية والمساحات المفتوحة، مع دمج المساحات الداخلية والخارجية بشكل متناغم.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card overflow-hidden group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="مجمع مكاتب إدارية" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 relative z-10 -mt-6">
+                        <span class="text-amber-400 text-sm font-semibold mb-2 block">تصميم معماري تجاري</span>
+                        <h4 class="text-xl font-bold text-white mb-2">مجمع مكاتب إدارية</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mt-4">
+                            تصميم مجمع تجاري وإداري حديث يركز على استغلال المساحات لتوفير بيئة عمل محفزة ومستدامة تلبي احتياجات الشركات العصرية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center text-slate-500 mt-16 pb-8 text-sm reveal">
+            <p>جميع الحقوق محفوظة &copy; 2026 | المهندس عمر حسن</p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript for Scroll Reveal Animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".reveal");
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add("active");
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll(); // Trigger on load
+        });
+    </script>
+</body>
+</html>
